@@ -5,9 +5,9 @@ const app = express();
 app.use(express.json());
 
 app.get("/health", (req, res) => {
-  res.json({
+  res.status(200).json({
     success: true,
-    message: "API is healthy 🚀"
+    message: "API is healthy 🚀",
   });
 });
 
