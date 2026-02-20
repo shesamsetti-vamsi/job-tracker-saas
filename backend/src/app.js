@@ -2,9 +2,12 @@ import express from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
+
 import { apiLimiter } from "./middleware/rateLimit.middleware.js";
 import { notFoundHandler } from "./middleware/notFound.middleware.js";
 import { errorHandler } from "./middleware/error.middleware.js";
+
+import healthRoutes from "./routes/health.routes.js";
 
 const app = express();
 
@@ -16,7 +19,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // will change in production
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -30,7 +33,7 @@ app.use(apiLimiter);
 app.use(morgan("dev"));
 
 /* =========================
-   Body Parser
+   Body Parsing
 ========================= */
 
 app.use(express.json());
@@ -39,15 +42,10 @@ app.use(express.json());
    Routes
 ========================= */
 
-app.get("/health", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "API is healthy 🚀",
-  });
-});
+app.use("/api/v1", healthRoutes);
 
 /* =========================
-   404 + Error Handlers
+   404 + Errors
 ========================= */
 
 app.use(notFoundHandler);
