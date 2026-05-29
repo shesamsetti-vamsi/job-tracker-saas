@@ -176,12 +176,3 @@ All routes are prefixed with `/api/v1`.
 | GET | `/users/me` | ✓ | User profile |
 | GET | `/admin` | ADMIN | Admin-only route |
 | GET | `/health` | — | Health check |
-
-
----
-
-## Author
-
-**Vamsi Shesamsetti** — Full-Stack Developer · Cloud Engineer · M.S. CS @ FAU (May 2026)
-
-🌐 [vamsishesamsetti.dev](https://vamsishesamsetti.dev) · 💼 [LinkedIn](https://linkedin.com/in/vamsishesamsetti) · 🐙 [GitHub](https://github.com/vamsishesamsetti) · ✉️ shesamsettivamsi11@gmail.com
